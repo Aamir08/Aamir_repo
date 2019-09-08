@@ -10,6 +10,7 @@ namespace C_code
     {
         static void Main(string[] args)
         {
+
         }
     }
 
@@ -26,5 +27,6 @@ namespace C_code
         }
     }
 
-    
+    interface IA { }
+ 
 }
