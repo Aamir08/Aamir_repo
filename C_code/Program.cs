@@ -12,4 +12,6 @@ namespace C_code
         {
         }
     }
+
+    class EmpployeeAaaaaaa { }
 }
