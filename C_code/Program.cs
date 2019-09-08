@@ -12,4 +12,9 @@ namespace C_code
         {
         }
     }
+
+    class Emp
+    { 
+    
+    }
 }

@@ -1,1 +1,2 @@
 C:\Users\Aamir\Documents\GitHub\Aamir_repo\C_code\bin\Debug\C_code.exe.config
+C:\Users\hp\Documents\GitHub\Aamir_repo\C_code\bin\Debug\C_code.exe.config
