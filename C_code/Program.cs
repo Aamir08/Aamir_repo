@@ -13,8 +13,10 @@ namespace C_code
         }
     }
 
-    class Emp
-    { 
-    
+    class Scoopen
+    {
+        public void Print()
+        {
+        }
     }
 }
