@@ -15,8 +15,16 @@ namespace C_code
 
     class Scoopen
     {
+        public Scoopen()
+        { 
+        
+        }
+
+
         public void Print()
         {
         }
     }
+
+    
 }
