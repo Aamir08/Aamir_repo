@@ -22,7 +22,7 @@
         <asp:Label ID="lblTAmount" runat="server"></asp:Label>
         <br />
         <br />
-        <asp:Button ID="btnConfirmPayment" runat="server" Text="Confirm Order and make Payment" OnClick="btnConfirmPayment_Click" />
+        <asp:Button ID="btnConfirmPayment" runat="server" Text="Confirm Order and make Payment" OnClick="btnConfirmPayment_Click" Visible="False" />
         <br />
         <asp:Label ID="lblPayment" runat="server"></asp:Label>
         <br />

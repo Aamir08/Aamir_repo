@@ -25,6 +25,7 @@ namespace KitchenFood
             if (CartData.Count != 0)
             {
                 lblTotal.Visible = true;
+                btnConfirmPayment.Visible = true;
                 lblTAmount.Text = Convert.ToString(Total_Price);
             }
             else
@@ -47,6 +48,7 @@ namespace KitchenFood
             }
 
             db.usp_OrderHistory(Userid);
+            btnConfirmPayment.Visible = false;
             lblPayment.Text = "Your order is confirmed and Payment is successfull";
         }
 
