@@ -54,7 +54,7 @@ namespace KitchenFood
 
         protected void btnOrderHistory_Click(object sender, EventArgs e)
         {
-
+            btnConfirmPayment.Visible = false;
             string UN = Session["UserName"].ToString();
             int Userid = 0;
             var UserLogged = db.tblUsers.Where(s => s.UName.Equals(UN)).ToList();
