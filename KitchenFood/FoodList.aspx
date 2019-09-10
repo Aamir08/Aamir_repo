@@ -9,7 +9,8 @@
 <body>
     <form id="form1" runat="server">
     <div>
-
+        <h1>Welcome <asp:Label ID="lblUserName" runat="server"></asp:Label></h1>
+        
         Please click on the food category to show the available foods<br />
 
         <asp:Button ID="btnVeg" runat="server" Text="Veg only" OnClick="btnVeg_Click" />
@@ -17,7 +18,6 @@
         <asp:Button ID="btnNonveg" runat="server" Text="Non Veg only" OnClick="btnNonveg_Click" />
 
         <asp:Button ID="btnFoodList" runat="server" Text="All Available Food" OnClick="btnFoodList_Click"/>
-        <asp:Button ID="btnOrderHistory" runat="server" OnClick="btnOrderHistory_Click" Text="My Orders" />
         <div>
         <asp:GridView ID="gdFoodList" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
             <Columns>
@@ -44,22 +44,7 @@
         </div>
         <asp:Button ID="btnCart" runat="server" Text="Add To Cart" OnClick="btnCart_Click" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="View Cart" />
-        <br />
-        <asp:GridView ID="gvCart" runat="server">
-        </asp:GridView>
-&nbsp;<asp:Label ID="lblTotal" Visible="False" runat="server" Text="Total Amount = "></asp:Label>
-        <asp:Label ID="lblTAmount" runat="server"></asp:Label>
-        <br />
-        <br />
-        <asp:Button ID="btnConfirmPayment" runat="server" Text="Confirm Order and make Payment" OnClick="btnConfirmPayment_Click" />
-        <br />
-        <asp:Label ID="lblPayment" runat="server"></asp:Label>
-        <br />
-        <br />
-        
-        <asp:GridView ID="gvOrderHist" runat="server">
-        </asp:GridView>
+        <asp:Button ID="btnViewCart" runat="server" OnClick="btnViewCart_Click" Text="View Cart" />
           
     
     </form>

@@ -14,7 +14,7 @@ namespace KitchenFood
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+           lblUserName.Text=Session["UserName"].ToString();
                 
                 if (!IsPostBack)
                 {
@@ -101,50 +101,10 @@ namespace KitchenFood
                 }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void btnViewCart_Click(object sender, EventArgs e)
         {
-
-            List<tblCart> CartData = db.tblCarts.ToList();
-            gvCart.DataSource = CartData;
-            gvCart.DataBind();
-
-            int? Total_Price = 0;
-
-            foreach (tblCart item in CartData)
-            {
-                Total_Price += item.FPrice;
-            }
-            if (CartData.Count!=0)
-            {
-                lblTotal.Visible = true;
-                lblTAmount.Text = Convert.ToString(Total_Price);
-            }
-            else
-            {
-                lblTAmount.Text = "You have not added any item in Cart";
-            }  
-         
+            Response.Redirect("~/FoodCart.aspx");
         }
 
-        protected void btnOrderHistory_Click(object sender, EventArgs e)
-        {
-            
-            List<tblOrderHistory> OrderH = db.tblOrderHistories.ToList();
-            if (OrderH.Count != 0)
-            {
-                gvOrderHist.DataSource = OrderH;
-                gvOrderHist.DataBind();
-            }
-            else
-            {
-                Response.Write("No ORDERS yet");
-            }
-        }
-
-        protected void btnConfirmPayment_Click(object sender, EventArgs e)
-        {
-            db.usp_OrderHistory(2);
-            lblPayment.Text = "Your order is confirmed and Payment is successfull";
-        }
     }
 }

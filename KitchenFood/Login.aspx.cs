@@ -19,6 +19,8 @@ namespace KitchenFood
             kitchenDBContext db = new kitchenDBContext();
             List<tblUser> UserList = db.tblUsers.ToList();
 
+            Session["UserName"]=txtUname.Text;
+            
             foreach (var item in UserList)
             {
                 if (item.UName == txtUname.Text && item.UPassword == txtPassword.Text)

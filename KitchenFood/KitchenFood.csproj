@@ -64,11 +64,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Db_Script\KitchenDBQueries.txt" />
+    <Content Include="FoodCart.aspx" />
     <Content Include="FoodList.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FoodCart.aspx.cs">
+      <DependentUpon>FoodCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FoodCart.aspx.designer.cs">
+      <DependentUpon>FoodCart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FoodList.aspx.cs">
       <DependentUpon>FoodList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

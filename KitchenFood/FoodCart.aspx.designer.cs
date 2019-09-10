@@ -10,96 +10,87 @@
 namespace KitchenFood {
     
     
-    public partial class FoodList {
+    public partial class FoodCart {
         
         /// <summary>
-        /// form1 control.
+        /// form2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
-        /// lblUserName control.
+        /// btnHome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserName;
+        protected global::System.Web.UI.WebControls.Button btnHome;
         
         /// <summary>
-        /// btnVeg control.
+        /// btnOrderHistory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVeg;
+        protected global::System.Web.UI.WebControls.Button btnOrderHistory;
         
         /// <summary>
-        /// btnNonveg control.
+        /// gvCart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNonveg;
+        protected global::System.Web.UI.WebControls.GridView gvCart;
         
         /// <summary>
-        /// btnFoodList control.
+        /// lblTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFoodList;
+        protected global::System.Web.UI.WebControls.Label lblTotal;
         
         /// <summary>
-        /// gdFoodList control.
+        /// lblTAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdFoodList;
+        protected global::System.Web.UI.WebControls.Label lblTAmount;
         
         /// <summary>
-        /// lbFoodList control.
+        /// btnConfirmPayment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lbFoodList;
+        protected global::System.Web.UI.WebControls.Button btnConfirmPayment;
         
         /// <summary>
-        /// txtQuantity control.
+        /// lblPayment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQuantity;
+        protected global::System.Web.UI.WebControls.Label lblPayment;
         
         /// <summary>
-        /// btnCart control.
+        /// gvOrderHist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCart;
-        
-        /// <summary>
-        /// btnViewCart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnViewCart;
+        protected global::System.Web.UI.WebControls.GridView gvOrderHist;
     }
 }
