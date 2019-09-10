@@ -63,6 +63,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Db_Script\KitchenDBQueries.txt" />
     <Content Include="FoodList.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Web.config" />

@@ -1,6 +1,31 @@
-Create database Kitchen
+Create database Kitchentest
 
-use Kitchen
+use Kitchentest
+
+
+CREATE TABLE [dbo].[tblUsers](
+	[Uid] [int] IDENTITY(1,1) NOT NULL primary key,
+	[UName] [varchar](20) NULL,
+	[UPassword] [varchar](20) NULL
+)
+
+
+insert into tblusers values('User','User')
+insert into tblusers values('UserBeta','UserBeta')
+
+CREATE TABLE [dbo].[tblFoodList](
+	[Fid] [int] IDENTITY(1,1) NOT NULL primary key,
+	[FoodName] [varchar](20) NULL,
+	[FoodIngredients] [varchar](20) NULL,
+	[FoodCategory] [varchar](10) NULL,
+	[FoodPrice] [int] NULL)
+
+
+insert into tblFoodList values('Paneer','Test_Ingredients','Veg',100)
+insert into tblFoodList values('Chole','Test_Ingredients','Veg',200)
+insert into tblFoodList values ('Chicken','Test_Ingredients','Non-Veg',300)
+insert into tblFoodList values('Mutton','Test_Ingredients','Non-Veg',350)
+
 
 create table tblCart(
 Itemid int identity primary key,
@@ -26,7 +51,7 @@ UserId int foreign key references tblUsers(Uid)
 )
 
 
-alter proc usp_OrderHistory
+create proc usp_OrderHistory
 @NewUserid int
 as
 begin
