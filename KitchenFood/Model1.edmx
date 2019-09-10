@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="kitchenModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="kitchenModelStoreContainer">
+          <EntitySet Name="tblCart" EntityType="kitchenModel.Store.tblCart" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblFoodList" EntityType="kitchenModel.Store.tblFoodList" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblOrderHistory" EntityType="kitchenModel.Store.tblOrderHistory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblUsers" EntityType="kitchenModel.Store.tblUsers" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__tblOrderH__UserI__22AA2996" Association="kitchenModel.Store.FK__tblOrderH__UserI__22AA2996">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblOrderHistory" EntitySet="tblOrderHistory" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tblCart">
+          <Key>
+            <PropertyRef Name="Itemid" />
+          </Key>
+          <Property Name="Itemid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FoodName" Type="varchar" MaxLength="50" />
+          <Property Name="FPrice" Type="int" />
+          <Property Name="FQuantity" Type="int" />
+        </EntityType>
+        <EntityType Name="tblFoodList">
+          <Key>
+            <PropertyRef Name="Fid" />
+          </Key>
+          <Property Name="Fid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FoodName" Type="varchar" MaxLength="20" />
+          <Property Name="FoodIngredients" Type="varchar" MaxLength="20" />
+          <Property Name="FoodCategory" Type="varchar" MaxLength="10" />
+          <Property Name="FoodPrice" Type="int" />
+        </EntityType>
+        <EntityType Name="tblOrderHistory">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FoodName" Type="varchar" MaxLength="50" />
+          <Property Name="Price" Type="int" />
+          <Property Name="OrderDate" Type="date" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblUsers">
+          <Key>
+            <PropertyRef Name="Uid" />
+          </Key>
+          <Property Name="Uid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UName" Type="varchar" MaxLength="20" />
+          <Property Name="UPassword" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK__tblOrderH__UserI__22AA2996">
+          <End Role="tblUsers" Type="kitchenModel.Store.tblUsers" Multiplicity="0..1" />
+          <End Role="tblOrderHistory" Type="kitchenModel.Store.tblOrderHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tblOrderHistory">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="usp_OrderHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NewUserid" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="kitchenModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="kitchenDBContext" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="tblUsers" EntityType="kitchenModel.tblUser" />
+          <EntitySet Name="tblFoodLists" EntityType="kitchenModel.tblFoodList" />
+          <EntitySet Name="tblOrderHistories" EntityType="kitchenModel.tblOrderHistory" />
+          <AssociationSet Name="FK__tblOrderH__UserI__22AA2996" Association="kitchenModel.FK__tblOrderH__UserI__22AA2996">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblOrderHistory" EntitySet="tblOrderHistories" />
+          </AssociationSet>
+          <EntitySet Name="tblCarts" EntityType="kitchenModel.tblCart" />
+          <FunctionImport Name="usp_OrderHistory">
+            <Parameter Name="NewUserid" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="Uid" />
+          </Key>
+          <Property Name="Uid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UName" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="UPassword" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tblOrderHistories" Relationship="kitchenModel.FK__tblOrderH__UserI__22AA2996" FromRole="tblUser" ToRole="tblOrderHistory" />
+        </EntityType>
+        <EntityType Name="tblFoodList">
+          <Key>
+            <PropertyRef Name="Fid" />
+          </Key>
+          <Property Type="Int32" Name="Fid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FoodName" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FoodIngredients" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FoodCategory" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="FoodPrice" />
+        </EntityType>
+        <EntityType Name="tblOrderHistory">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Type="Int32" Name="OrderId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FoodName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Price" />
+          <Property Type="DateTime" Name="OrderDate" Precision="0" />
+          <Property Type="Int32" Name="UserId" />
+          <NavigationProperty Name="tblUser" Relationship="kitchenModel.FK__tblOrderH__UserI__22AA2996" FromRole="tblOrderHistory" ToRole="tblUser" />
+        </EntityType>
+        <Association Name="FK__tblOrderH__UserI__22AA2996">
+          <End Type="kitchenModel.tblUser" Role="tblUser" Multiplicity="0..1" />
+          <End Type="kitchenModel.tblOrderHistory" Role="tblOrderHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tblOrderHistory">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblCart">
+          <Key>
+            <PropertyRef Name="Itemid" />
+          </Key>
+          <Property Type="Int32" Name="Itemid" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" />
+          <Property Type="String" Name="FoodName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="FPrice" />
+          <Property Type="Int32" Name="FQuantity" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="kitchenModelStoreContainer" CdmEntityContainer="kitchenDBContext">
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="kitchenModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUsers">
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="UName" ColumnName="UName" />
+                <ScalarProperty Name="UPassword" ColumnName="UPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFoodLists">
+            <EntityTypeMapping TypeName="kitchenModel.tblFoodList">
+              <MappingFragment StoreEntitySet="tblFoodList">
+                <ScalarProperty Name="FoodPrice" ColumnName="FoodPrice" />
+                <ScalarProperty Name="FoodCategory" ColumnName="FoodCategory" />
+                <ScalarProperty Name="FoodIngredients" ColumnName="FoodIngredients" />
+                <ScalarProperty Name="FoodName" ColumnName="FoodName" />
+                <ScalarProperty Name="Fid" ColumnName="Fid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOrderHistories">
+            <EntityTypeMapping TypeName="kitchenModel.tblOrderHistory">
+              <MappingFragment StoreEntitySet="tblOrderHistory">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="FoodName" ColumnName="FoodName" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCarts">
+            <EntityTypeMapping TypeName="kitchenModel.tblCart">
+              <MappingFragment StoreEntitySet="tblCart">
+                <ScalarProperty Name="Itemid" ColumnName="Itemid" />
+                <ScalarProperty Name="FQuantity" ColumnName="FQuantity" />
+                <ScalarProperty Name="FPrice" ColumnName="FPrice" />
+                <ScalarProperty Name="FoodName" ColumnName="FoodName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_OrderHistory" FunctionName="kitchenModel.Store.usp_OrderHistory" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

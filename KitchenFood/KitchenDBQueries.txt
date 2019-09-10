@@ -1,0 +1,36 @@
+Create database Kitchen
+
+use Kitchen
+
+create table tblCart(
+Itemid int identity primary key,
+FoodName varchar(50),
+FPrice int,
+FQuantity int
+)
+
+create trigger tr_Cart_identity
+on tblcart
+for delete
+as
+begin
+DBCC CHECKIDENT ('tblcart',reseed,0)
+end
+
+create table tblOrderHistory(
+OrderId int identity primary key,
+FoodName varchar(50),
+Price int,
+OrderDate date,
+UserId int foreign key references tblUsers(Uid)
+)
+
+
+alter proc usp_OrderHistory
+@NewUserid int
+as
+begin
+insert into tblOrderHistory (FoodName,Price,OrderDate,UserId) select FoodName,FPrice,CURRENT_TIMESTAMP,@NewUserid from tblCart 
+end
+
+
