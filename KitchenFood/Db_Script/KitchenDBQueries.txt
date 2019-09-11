@@ -1,6 +1,6 @@
-Create database Kitchentest
+Create database Kitchen
 
-use Kitchentest
+use Kitchen
 
 
 CREATE TABLE [dbo].[tblUsers](
