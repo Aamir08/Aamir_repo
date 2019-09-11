@@ -64,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Db_Script\KitchenDBQueries.txt" />
+    <Content Include="Food.jpeg" />
+    <Content Include="food1.jpg" />
     <Content Include="FoodCart.aspx" />
     <Content Include="FoodList.aspx" />
     <Content Include="Login.aspx" />

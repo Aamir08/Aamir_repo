@@ -6,13 +6,13 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
+<body >
     <form id="form2" runat="server">
         <br />
         <asp:Button ID="btnHome" runat="server" OnClick="btnHome_Click" Text="Goto Home page" />
 &nbsp;<asp:Button ID="btnOrderHistory" runat="server" OnClick="btnOrderHistory_Click" Text="My orders" />
           
-    
+        
         <br />
         <br />
         <asp:GridView ID="gvCart" runat="server">

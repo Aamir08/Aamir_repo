@@ -6,9 +6,12 @@
 <head runat="server">
     <title>Kitchen Food</title>
 </head>
-<body style="margin-left: 300px;margin-top:50px">
+<body style="margin-left: 580px; margin-top:50px;background-image:url('Food1.jpg'); width: 525px;">
     <form id="form1" runat="server">
     <div>
+        
+        <br />
+        <br />
         
         <table>
             <tr>
