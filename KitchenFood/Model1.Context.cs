@@ -41,5 +41,26 @@ namespace KitchenFood
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_OrderHistory", newUseridParameter);
         }
+    
+        public virtual int usp_Admin_insert_food(string fdName, string fdIngredients, string fdCategory, Nullable<int> fdPrice)
+        {
+            var fdNameParameter = fdName != null ?
+                new ObjectParameter("FdName", fdName) :
+                new ObjectParameter("FdName", typeof(string));
+    
+            var fdIngredientsParameter = fdIngredients != null ?
+                new ObjectParameter("FdIngredients", fdIngredients) :
+                new ObjectParameter("FdIngredients", typeof(string));
+    
+            var fdCategoryParameter = fdCategory != null ?
+                new ObjectParameter("FdCategory", fdCategory) :
+                new ObjectParameter("FdCategory", typeof(string));
+    
+            var fdPriceParameter = fdPrice.HasValue ?
+                new ObjectParameter("FdPrice", fdPrice) :
+                new ObjectParameter("FdPrice", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_Admin_insert_food", fdNameParameter, fdIngredientsParameter, fdCategoryParameter, fdPriceParameter);
+        }
     }
 }

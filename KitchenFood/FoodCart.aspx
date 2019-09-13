@@ -9,7 +9,7 @@
 <body >
     <form id="form2" runat="server">
         <br />
-        <asp:Button ID="btnHome" runat="server" OnClick="btnHome_Click" Text="Goto Home page" />
+        <asp:Button ID="btnHome" runat="server" OnClick="btnHome_Click" Text="Clear Cart and go Home" />
 &nbsp;<asp:Button ID="btnOrderHistory" runat="server" OnClick="btnOrderHistory_Click" Text="My orders" />
           
         

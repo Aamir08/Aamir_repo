@@ -64,6 +64,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="usp_Admin_insert_food" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FdName" Type="varchar" Mode="In" />
+          <Parameter Name="FdIngredients" Type="varchar" Mode="In" />
+          <Parameter Name="FdCategory" Type="varchar" Mode="In" />
+          <Parameter Name="FdPrice" Type="int" Mode="In" />
+        </Function>
         <Function Name="usp_OrderHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NewUserid" Type="int" Mode="In" />
         </Function>
@@ -81,7 +87,13 @@
           </AssociationSet>
           <EntitySet Name="tblCarts" EntityType="kitchenModel.tblCart" />
           <FunctionImport Name="usp_OrderHistory">
-            <Parameter Name="NewUserid" Mode="In" Type="Int32" />
+          <Parameter Name="NewUserid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Admin_insert_food">
+            <Parameter Name="FdName" Mode="In" Type="String" />
+            <Parameter Name="FdIngredients" Mode="In" Type="String" />
+            <Parameter Name="FdCategory" Mode="In" Type="String" />
+            <Parameter Name="FdPrice" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="tblUser">
@@ -183,6 +195,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="usp_OrderHistory" FunctionName="kitchenModel.Store.usp_OrderHistory" />
+          <FunctionImportMapping FunctionImportName="usp_Admin_insert_food" FunctionName="kitchenModel.Store.usp_Admin_insert_food" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

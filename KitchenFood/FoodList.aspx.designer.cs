@@ -85,6 +85,15 @@ namespace KitchenFood {
         protected global::System.Web.UI.WebControls.TextBox txtQuantity;
         
         /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
         /// btnCart control.
         /// </summary>
         /// <remarks>
@@ -101,5 +110,14 @@ namespace KitchenFood {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnViewCart;
+        
+        /// <summary>
+        /// lblCartSuc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCartSuc;
     }
 }

@@ -63,6 +63,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Add_food_List.aspx" />
     <Content Include="Db_Script\KitchenDBQueries.txt" />
     <Content Include="Food.jpeg" />
     <Content Include="food1.jpg" />
@@ -72,6 +73,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add_food_List.aspx.cs">
+      <DependentUpon>Add_food_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Add_food_List.aspx.designer.cs">
+      <DependentUpon>Add_food_List.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FoodCart.aspx.cs">
       <DependentUpon>FoodCart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

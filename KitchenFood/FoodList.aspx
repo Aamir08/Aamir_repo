@@ -37,6 +37,7 @@
             <br />
         <asp:ListBox ID="lbFoodList" Visible="false" runat="server" Width="186px" SelectionMode="Multiple"></asp:ListBox>
             Quantity:<asp:TextBox ID="txtQuantity" runat="server" TextMode="Number">1</asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtQuantity" runat="server" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
         </div>
        
@@ -45,6 +46,10 @@
         <asp:Button ID="btnCart" runat="server" Text="Add To Cart" OnClick="btnCart_Click" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnViewCart" runat="server" OnClick="btnViewCart_Click" Text="View Cart" />
+          
+    
+        <br />
+        <asp:Label ID="lblCartSuc" runat="server"></asp:Label>
           
     
     </form>

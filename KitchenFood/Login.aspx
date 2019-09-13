@@ -18,31 +18,48 @@
                 <td>
                     <h1>Login</h1>
                 </td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td>
                     User Name:
                 </td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td>
                     <asp:TextBox ID="txtUname" runat="server"></asp:TextBox>
                 </td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td>
                     Password:
                 </td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td>
                     <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
                 </td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td>
                     <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btn_Admin" runat="server" OnClick="btn_Admin_Click" Text="Admin Login" />
                 </td>
+            </tr>
+
+            <tr>
+                <td>
+                    &nbsp;</td>
             </tr>
 
         </table>

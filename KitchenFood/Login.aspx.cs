@@ -9,6 +9,7 @@ namespace KitchenFood
 {
     public partial class Login : System.Web.UI.Page
     {
+        kitchenDBContext db = new kitchenDBContext();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -16,7 +17,7 @@ namespace KitchenFood
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            kitchenDBContext db = new kitchenDBContext();
+           
             List<tblUser> UserList = db.tblUsers.ToList();
 
             Session["UserName"]=txtUname.Text;
@@ -32,6 +33,36 @@ namespace KitchenFood
                     lblAuthUser.Text = "Please enter correct Username and Password";
                 }
             }
+        }
+
+        protected void btn_Admin_Click(object sender, EventArgs e)
+        {
+            if ((txtUname.Text.ToString()).Equals("Admin"))
+            {
+                List<tblUser> UserList = db.tblUsers.ToList();
+
+                Session["UserName"] = txtUname.Text;
+
+                foreach (var item in UserList)
+                {
+                    if (item.UName == txtUname.Text && item.UPassword == txtPassword.Text)
+                    {
+
+                        Response.Redirect("~/Add_food_List.aspx");
+
+
+                    }
+                    else
+                    {
+                        lblAuthUser.Text = "Please enter correct Username and Password";
+                    }
+                }
+            }
+            else
+            {
+                lblAuthUser.Text = "You are not Authorised";
+            }
+            
         }
     }
 }

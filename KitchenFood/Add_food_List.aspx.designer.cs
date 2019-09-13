@@ -10,7 +10,7 @@
 namespace KitchenFood {
     
     
-    public partial class Login {
+    public partial class Add_food_List {
         
         /// <summary>
         /// form1 control.
@@ -22,48 +22,57 @@ namespace KitchenFood {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// txtUname control.
+        /// txtFdName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUname;
+        protected global::System.Web.UI.WebControls.TextBox txtFdName;
         
         /// <summary>
-        /// txtPassword control.
+        /// txtFdIngre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtFdIngre;
         
         /// <summary>
-        /// btnLogin control.
+        /// DD_Food_Cat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.DropDownList DD_Food_Cat;
         
         /// <summary>
-        /// btn_Admin control.
+        /// txtFdPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Admin;
+        protected global::System.Web.UI.WebControls.TextBox txtFdPrice;
         
         /// <summary>
-        /// lblAuthUser control.
+        /// btnFdAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAuthUser;
+        protected global::System.Web.UI.WebControls.Button btnFdAdd;
+        
+        /// <summary>
+        /// lblFdAddSuc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFdAddSuc;
     }
 }
