@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="kitchenModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="kitchenDBContext" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="tblUsers" EntityType="kitchenModel.tblUser" />
+    <EntitySet Name="tblFoodLists" EntityType="kitchenModel.tblFoodList" />
+    <EntitySet Name="tblOrderHistories" EntityType="kitchenModel.tblOrderHistory" />
+    <AssociationSet Name="FK__tblOrderH__UserI__22AA2996" Association="kitchenModel.FK__tblOrderH__UserI__22AA2996">
+      <End Role="tblUser" EntitySet="tblUsers" />
+      <End Role="tblOrderHistory" EntitySet="tblOrderHistories" />
+    </AssociationSet>
+    <EntitySet Name="tblCarts" EntityType="kitchenModel.tblCart" />
+    <FunctionImport Name="usp_OrderHistory">
+      <Parameter Name="NewUserid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Admin_insert_food">
+      <Parameter Name="FdName" Mode="In" Type="String" />
+      <Parameter Name="FdIngredients" Mode="In" Type="String" />
+      <Parameter Name="FdCategory" Mode="In" Type="String" />
+      <Parameter Name="FdPrice" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="Uid" />
+    </Key>
+    <Property Name="Uid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UName" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="UPassword" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="tblOrderHistories" Relationship="kitchenModel.FK__tblOrderH__UserI__22AA2996" FromRole="tblUser" ToRole="tblOrderHistory" />
+  </EntityType>
+  <EntityType Name="tblFoodList">
+    <Key>
+      <PropertyRef Name="Fid" />
+    </Key>
+    <Property Type="Int32" Name="Fid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FoodName" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FoodIngredients" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FoodCategory" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="FoodPrice" />
+  </EntityType>
+  <EntityType Name="tblOrderHistory">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Type="Int32" Name="OrderId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FoodName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Price" />
+    <Property Type="DateTime" Name="OrderDate" Precision="0" />
+    <Property Type="Int32" Name="UserId" />
+    <NavigationProperty Name="tblUser" Relationship="kitchenModel.FK__tblOrderH__UserI__22AA2996" FromRole="tblOrderHistory" ToRole="tblUser" />
+  </EntityType>
+  <Association Name="FK__tblOrderH__UserI__22AA2996">
+    <End Type="kitchenModel.tblUser" Role="tblUser" Multiplicity="0..1" />
+    <End Type="kitchenModel.tblOrderHistory" Role="tblOrderHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="Uid" />
+      </Principal>
+      <Dependent Role="tblOrderHistory">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblCart">
+    <Key>
+      <PropertyRef Name="Itemid" />
+    </Key>
+    <Property Type="Int32" Name="Itemid" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" />
+    <Property Type="String" Name="FoodName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="FPrice" />
+    <Property Type="Int32" Name="FQuantity" />
+  </EntityType>
+</Schema>

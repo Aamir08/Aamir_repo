@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="kitchenModelStoreContainer" CdmEntityContainer="kitchenDBContext">
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="kitchenModel.tblUser">
+        <MappingFragment StoreEntitySet="tblUsers">
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="UName" ColumnName="UName" />
+          <ScalarProperty Name="UPassword" ColumnName="UPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFoodLists">
+      <EntityTypeMapping TypeName="kitchenModel.tblFoodList">
+        <MappingFragment StoreEntitySet="tblFoodList">
+          <ScalarProperty Name="FoodPrice" ColumnName="FoodPrice" />
+          <ScalarProperty Name="FoodCategory" ColumnName="FoodCategory" />
+          <ScalarProperty Name="FoodIngredients" ColumnName="FoodIngredients" />
+          <ScalarProperty Name="FoodName" ColumnName="FoodName" />
+          <ScalarProperty Name="Fid" ColumnName="Fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOrderHistories">
+      <EntityTypeMapping TypeName="kitchenModel.tblOrderHistory">
+        <MappingFragment StoreEntitySet="tblOrderHistory">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="FoodName" ColumnName="FoodName" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCarts">
+      <EntityTypeMapping TypeName="kitchenModel.tblCart">
+        <MappingFragment StoreEntitySet="tblCart">
+          <ScalarProperty Name="Itemid" ColumnName="Itemid" />
+          <ScalarProperty Name="FQuantity" ColumnName="FQuantity" />
+          <ScalarProperty Name="FPrice" ColumnName="FPrice" />
+          <ScalarProperty Name="FoodName" ColumnName="FoodName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_OrderHistory" FunctionName="kitchenModel.Store.usp_OrderHistory" />
+    <FunctionImportMapping FunctionImportName="usp_Admin_insert_food" FunctionName="kitchenModel.Store.usp_Admin_insert_food" />
+  </EntityContainerMapping>
+</Mapping>

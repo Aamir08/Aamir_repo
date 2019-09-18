@@ -1,0 +1,7 @@
+C:\Users\Aamir\Documents\GitHub\Aamir_repo\KitchenFood\bin\KitchenFood.dll
+C:\Users\Aamir\Documents\GitHub\Aamir_repo\KitchenFood\bin\KitchenFood.pdb
+C:\Users\Aamir\Documents\GitHub\Aamir_repo\KitchenFood\bin\EntityFramework.dll
+C:\Users\Aamir\Documents\GitHub\Aamir_repo\KitchenFood\bin\EntityFramework.xml
+C:\Users\Aamir\Documents\GitHub\Aamir_repo\KitchenFood\obj\Debug\KitchenFood.csprojResolveAssemblyReference.cache
+C:\Users\Aamir\Documents\GitHub\Aamir_repo\KitchenFood\obj\Debug\KitchenFood.dll
+C:\Users\Aamir\Documents\GitHub\Aamir_repo\KitchenFood\obj\Debug\KitchenFood.pdb
